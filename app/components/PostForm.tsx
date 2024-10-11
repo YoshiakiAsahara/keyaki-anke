@@ -24,7 +24,7 @@ const PostForm: React.FC<PostFeedbackProps> = ({
         />
       </Box>
       <Box mb={3} justifyContent="center" display={"flex"}>
-        <Button variant="contained" type="submit" size="small">
+        <Button variant="contained" type="submit" size="small" sx={{ px: 6 }}>
           投稿
         </Button>
       </Box>

@@ -12,6 +12,10 @@ const PostFormContainer = () => {
   const [feedback, setFeedback] = useState("");
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (feedback.trim() === "") {
+      toast.error("投稿内容を入力してください。");
+      return;
+    }
     const toastID = toast.info("投稿中...");
     try {
       const response = await axios.post("/api/feedback", {
