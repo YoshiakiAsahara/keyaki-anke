@@ -6,7 +6,6 @@ type PostFeedbackProps = {
   onFeedbackChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onSubmit: (e: React.FormEvent) => void;
 };
-
 const PostForm: React.FC<PostFeedbackProps> = ({
   feedback,
   onFeedbackChange,

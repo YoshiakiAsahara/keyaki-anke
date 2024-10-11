@@ -6,7 +6,6 @@ import { PostType } from "../../types/types";
 type HomeProps = {
   feedbacks: PostType[];
 };
-
 const Home: React.FC<HomeProps> = ({ feedbacks }) => {
   return (
     <Container>

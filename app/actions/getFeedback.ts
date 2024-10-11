@@ -1,5 +1,4 @@
 import prisma from "../../lib/prisma";
-
 const getFeedback = async () => {
   try {
     const feedbacks = await prisma.feedback.findMany({
@@ -12,5 +11,4 @@ const getFeedback = async () => {
     console.error(error);
   }
 };
-
 export default getFeedback;

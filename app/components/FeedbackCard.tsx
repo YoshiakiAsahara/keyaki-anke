@@ -4,7 +4,6 @@ type FeedbackCardProps = {
   comment: string;
   createdAt: string;
 };
-
 const FeedbackCard: React.FC<FeedbackCardProps> = ({ comment, createdAt }) => {
   return (
     <Box border={1} borderColor="gainsboro" padding={3} marginBottom={2}>
@@ -17,5 +16,4 @@ const FeedbackCard: React.FC<FeedbackCardProps> = ({ comment, createdAt }) => {
     </Box>
   );
 };
-
 export default FeedbackCard;

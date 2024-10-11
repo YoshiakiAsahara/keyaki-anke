@@ -10,12 +10,9 @@ import axios from "axios";
 const PostFormContainer = () => {
   const router = useRouter();
   const [feedback, setFeedback] = useState("");
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     const toastID = toast.info("投稿中...");
-
     try {
       const response = await axios.post("/api/feedback", {
         comment: feedback,
@@ -23,7 +20,6 @@ const PostFormContainer = () => {
       });
       if (response.status == 201) {
         toast.dismiss(toastID);
-
         router.refresh();
         setFeedback("");
         toast.success("投稿が完了しました！");
@@ -34,11 +30,9 @@ const PostFormContainer = () => {
       throw error;
     }
   };
-
   const handleFeedbackChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFeedback(e.target.value);
   };
-
   return (
     <>
       <PostForm

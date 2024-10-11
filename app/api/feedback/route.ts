@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "../../../lib/prisma";
-
 //GET API
 export async function GET(req: NextRequest) {
   try {
@@ -17,12 +16,10 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ message: "Error", err }, { status: 500 });
   }
 }
-
 // FEEDBACk投稿用API
 export async function POST(req: NextRequest) {
   try {
     const { comment, createdAt } = await req.json();
-
     const feedback = await prisma.feedback.create({
       data: { comment, createdAt },
     });

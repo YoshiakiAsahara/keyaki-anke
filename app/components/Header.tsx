@@ -19,7 +19,6 @@ export default function Header() {
             height={70}
             priority
           />
-
           <Typography
             color="wihte"
             fontSize="20px"
