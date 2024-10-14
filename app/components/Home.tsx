@@ -2,10 +2,12 @@ import { Box, Container, Typography } from "@mui/material";
 import FeedbackCard from "./FeedbackCard";
 import PostFormContainer from "./PostFormContainer";
 import { PostType } from "../../types/types";
+import Link from "next/link";
 
 type HomeProps = {
   feedbacks: PostType[];
 };
+
 const Home: React.FC<HomeProps> = ({ feedbacks }) => {
   return (
     <Container>
@@ -26,13 +28,15 @@ const Home: React.FC<HomeProps> = ({ feedbacks }) => {
         }}
       >
         {feedbacks?.map((feedback) => (
-          <FeedbackCard
-            comment={feedback.comment}
-            createdAt={feedback.createdAt.toLocaleString("ja-JP", {
-              timeZone: "Asia/Tokyo",
-            })}
-            key={feedback.id}
-          />
+          <Link href={`/feedback/${feedback.id}`}>
+            <FeedbackCard
+              key={feedback.id}
+              comment={feedback.comment}
+              createdAt={feedback.createdAt.toLocaleString("ja-JP", {
+                timeZone: "Asia/Tokyo",
+              })}
+            />
+          </Link>
         ))}
       </Box>
     </Container>
