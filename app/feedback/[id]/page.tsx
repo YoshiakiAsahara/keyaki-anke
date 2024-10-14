@@ -1,5 +1,7 @@
 import React from "react";
-import selectFeedback from "@/app/actions/selectFeedback"; // selectFeedbackをインポート
+import selectFeedback from "@/app/actions/selectFeedback";
+import Box from "@mui/material/Box";
+import PutFormContainer from "@/app/components/Putformcontainer";
 const Page = async ({ params }: { params: { id: string } }) => {
   try {
     const feedback = await selectFeedback(params);
@@ -7,15 +9,12 @@ const Page = async ({ params }: { params: { id: string } }) => {
       return <div>フィードバックが見つかりませんでした。</div>;
     }
     return (
-      <div>
-        <h1>フィードバック</h1>
-        <p>{feedback.comment}</p>
-        <p>
-          {new Date(feedback.createdAt).toLocaleString("ja-JP", {
-            timeZone: "Asia/Tokyo",
-          })}
-        </p>
-      </div>
+      <Box>
+        <PutFormContainer
+          feedbackId={params.id}
+          initialFeedback={feedback.comment}
+        />
+      </Box>
     );
   } catch (error) {
     console.error("エラーが発生しました:", error);
