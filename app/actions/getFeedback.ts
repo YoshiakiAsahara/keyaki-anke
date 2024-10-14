@@ -1,4 +1,4 @@
-import prisma from "../../lib/prisma";
+import prisma from "@/lib/prisma";
 const getFeedback = async () => {
   try {
     const feedbacks = await prisma.feedback.findMany({
