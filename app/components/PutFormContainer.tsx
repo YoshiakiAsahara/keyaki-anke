@@ -29,7 +29,8 @@ const PutFormContainer: React.FC<PutFormContainerProps> = ({
       });
       if (response.status === 200) {
         toast.dismiss(toastID);
-        router.back();
+        router.push("/");
+        router.refresh();
         toast.success("投稿が更新されました！");
       }
     } catch (error) {
