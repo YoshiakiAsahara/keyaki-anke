@@ -5,10 +5,12 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PostForm from "./PostForm";
 import axios from "axios";
+
 type PutFormContainerProps = {
   feedbackId: string;
   initialFeedback: string;
 };
+
 const PutFormContainer: React.FC<PutFormContainerProps> = ({
   feedbackId,
   initialFeedback,
@@ -39,6 +41,7 @@ const PutFormContainer: React.FC<PutFormContainerProps> = ({
       console.error("エラー:", error);
     }
   };
+
   const handleFeedbackChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFeedback(e.target.value);
   };
@@ -50,4 +53,5 @@ const PutFormContainer: React.FC<PutFormContainerProps> = ({
     />
   );
 };
+
 export default PutFormContainer;
