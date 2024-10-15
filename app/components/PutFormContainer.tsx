@@ -4,48 +4,54 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PostForm from "./PostForm";
-import { ServerActionError } from "../../types/types";
 import axios from "axios";
 
-const PostFormContainer = () => {
+type PutFormContainerProps = {
+  feedbackId: string;
+  initialFeedback: string;
+};
+
+const PutFormContainer: React.FC<PutFormContainerProps> = ({
+  feedbackId,
+  initialFeedback,
+}) => {
   const router = useRouter();
-  const [feedback, setFeedback] = useState("");
+  const [feedback, setFeedback] = useState(initialFeedback);
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (feedback.trim() === "") {
       toast.error("投稿内容を入力してください。");
       return;
     }
-    const toastID = toast.info("投稿中...");
+    const toastID = toast.info("更新中...");
     try {
-      const response = await axios.post("/api/feedback", {
+      const response = await axios.put(`/api/feedback/${feedbackId}`, {
         comment: feedback,
         createdAt: new Date(),
       });
-      if (response.status == 201) {
+      if (response.status === 200) {
         toast.dismiss(toastID);
+        router.push("/");
         router.refresh();
-        setFeedback("");
-        toast.success("投稿が完了しました！");
+        toast.success("投稿が更新されました！");
       }
     } catch (error) {
-      if (error instanceof ServerActionError)
-        return { success: false, error: error.message };
-      throw error;
+      toast.dismiss(toastID);
+      toast.error("更新に失敗しました。");
+      console.error("エラー:", error);
     }
   };
+
   const handleFeedbackChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFeedback(e.target.value);
   };
   return (
-    <>
-      <PostForm
-        feedback={feedback}
-        onFeedbackChange={handleFeedbackChange}
-        onSubmit={handleSubmit}
-      />
-    </>
+    <PostForm
+      feedback={feedback}
+      onFeedbackChange={handleFeedbackChange}
+      onSubmit={handleSubmit}
+    />
   );
 };
 
-export default PostFormContainer;
+export default PutFormContainer;
