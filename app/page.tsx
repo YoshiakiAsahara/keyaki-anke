@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import getFeedback from "./actions/getFeedback";
 import Home from "./components/Home";
 
