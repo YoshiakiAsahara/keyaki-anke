@@ -10,8 +10,15 @@ const FeedbackCard: React.FC<FeedbackCardProps> = ({ comment, createdAt }) => {
       <Typography component="h2" textAlign="left" fontSize="18px">
         {comment}
       </Typography>
-      <Typography fontSize="10px">
-        {new Date(createdAt).toLocaleString()}
+      <Typography fontSize="14px">
+        {new Date(createdAt).toLocaleString("ja-JP", {
+          timeZone: "Asia/Tokyo",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+        })}
       </Typography>
     </Box>
   );
