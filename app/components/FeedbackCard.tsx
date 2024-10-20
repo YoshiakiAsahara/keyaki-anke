@@ -2,8 +2,9 @@ import { Box, Typography } from "@mui/material";
 
 type FeedbackCardProps = {
   comment: string;
-  createdAt: string;
+  createdAt: Date; // 型をDateに変更
 };
+
 const FeedbackCard: React.FC<FeedbackCardProps> = ({ comment, createdAt }) => {
   return (
     <Box border={1} borderColor="gainsboro" padding={3} marginBottom={2}>
@@ -18,9 +19,11 @@ const FeedbackCard: React.FC<FeedbackCardProps> = ({ comment, createdAt }) => {
           day: "numeric",
           hour: "2-digit",
           minute: "2-digit",
-        }).format(new Date(createdAt))}
+        }).format(createdAt)}{" "}
+        {/* ここでDate型を使用 */}
       </Typography>
     </Box>
   );
 };
+
 export default FeedbackCard;
