@@ -13,7 +13,7 @@ export default function Header() {
       >
         <Toolbar variant="dense">
           <Image
-            src="/momoTech_2.png"
+            src="/images/momoTech_2.png"
             alt="PeachTech Logo"
             width={70}
             height={70}
