@@ -28,14 +28,13 @@ const Home: React.FC<HomeProps> = ({ feedbacks }) => {
         }}
       >
         {feedbacks?.map((feedback) => (
-          <Link href={`/feedback/${feedback.id}`} key={feedback.id}>
-            <FeedbackCard
-              comment={feedback.comment}
-              createdAt={feedback.createdAt.toLocaleString("ja-JP", {
-                timeZone: "Asia/Tokyo",
-              })}
-            />
-          </Link>
+          <FeedbackCard
+            key={feedback.id}
+            comment={feedback.comment}
+            createdAt={feedback.createdAt.toLocaleString("ja-JP", {
+              timeZone: "Asia/Tokyo",
+            })}
+          />
         ))}
       </Box>
     </Container>
