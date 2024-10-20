@@ -11,14 +11,14 @@ const FeedbackCard: React.FC<FeedbackCardProps> = ({ comment, createdAt }) => {
         {comment}
       </Typography>
       <Typography fontSize="14px">
-        {new Date(createdAt).toLocaleString("ja-JP", {
+        {new Intl.DateTimeFormat("ja-JP", {
           timeZone: "Asia/Tokyo",
           year: "numeric",
           month: "long",
           day: "numeric",
           hour: "2-digit",
           minute: "2-digit",
-        })}
+        }).format(new Date(createdAt))}
       </Typography>
     </Box>
   );
