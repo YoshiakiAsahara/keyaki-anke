@@ -4,8 +4,8 @@ import Header from "./components/Header";
 import ToastProvider from "./components/ToastProvider";
 
 export const metadata: Metadata = {
-  title: "keyaki-ten",
-  description: "This is a survey form for the Keyaki Festival.",
+  title: "欅祭ピーチテックアンケートフォーム",
+  description: "欅祭用アンケートフォームです！感想を記入してね。",
 };
 export default function RootLayout({
   children,
