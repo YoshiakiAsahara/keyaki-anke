@@ -7,11 +7,18 @@ type FeedbackCardProps = {
 const FeedbackCard: React.FC<FeedbackCardProps> = ({ comment, createdAt }) => {
   return (
     <Box border={1} borderColor="gainsboro" padding={3} marginBottom={2}>
-      <Typography component="h2" textAlign="left" fontSize="13px">
+      <Typography component="h2" textAlign="left" fontSize="18px">
         {comment}
       </Typography>
-      <Typography fontSize="10px">
-        {new Date(createdAt).toLocaleString()}
+      <Typography fontSize="14px">
+        {new Date(createdAt).toLocaleString("ja-JP", {
+          timeZone: "Asia/Tokyo",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+        })}
       </Typography>
     </Box>
   );
