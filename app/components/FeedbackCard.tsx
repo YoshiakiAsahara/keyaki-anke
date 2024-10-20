@@ -7,7 +7,7 @@ type FeedbackCardProps = {
 const FeedbackCard: React.FC<FeedbackCardProps> = ({ comment, createdAt }) => {
   return (
     <Box border={1} borderColor="gainsboro" padding={3} marginBottom={2}>
-      <Typography component="h2" textAlign="left" fontSize="13px">
+      <Typography component="h2" textAlign="left" fontSize="18px">
         {comment}
       </Typography>
       <Typography fontSize="10px">
