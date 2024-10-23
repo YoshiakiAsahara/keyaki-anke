@@ -6,7 +6,7 @@ import ToastProvider from "./components/ToastProvider";
 export const metadata: Metadata = {
   title: "欅祭PeachTechアンケートフォーム",
   description:
-    "欅祭に来てくださった方々がPeachTechのブースの感想を簡単に作成できるアンケートフォームです! PeachTechの学生が日頃から技術に向き合い作り上げたWebサイトやアプリ、ゲームに関する感想を募集しています!",
+    "欅祭に来てくださった方々がPeachTechのブースの感想を簡単に作成できるアンケートフォームです！ PeachTechの学生が日頃から技術に向き合い作り上げたWebサイトやアプリ、ゲームに関する感想を募集しています！",
 };
 
 export default function RootLayout({
